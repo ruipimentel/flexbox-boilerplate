@@ -1,0 +1,134 @@
+/*
+ORIGINAL SOURCE: "The Holy Grail" by Scott McKee
+URL: https://codepen.io/thedigitalman/pen/rAHCj
+*/
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+    font-family: 'Segoe UI', Segoe, Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.44;
+}
+
+body {
+    margin: 0;
+    /**
+   * Root em units
+   * 
+   * A root unit (rem) unit is relative to the root font size,
+   * wheras an em unit is relative to it's parent.
+   * 
+   * Ex: root font size = 16px
+   *     1.75rem        = 28px 
+   */
+    font-size: 1.75rem;
+}
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.flexbox,
+.flexbox-item {
+    display: -webkit-flex;	/* Chrome 21+ */
+    display: flex;			/* Opera 12.1, Firefox 22+ */
+    
+    /* Align and distribute flex items on the main axis (horizontally) */
+    -webkit-justify-content: center;
+    justify-content: center;
+    
+    /* Align and distribute flex items on the cross axis (vertically) */
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flexbox-item {
+    /**
+   * Viewport Units
+   * 
+   * A viewport unit (vh/vw) is relative to the viewport size
+   * 1 viewport unit = 1% of the viewport 
+   */
+    height: 80vh;
+}
+
+.header,
+.footer {
+    height: 10vh;
+    color: #fff;
+    background-color: #666;
+    -webkit-transition: font-size 0.5s linear;
+    transition: font-size 0.5s linear;
+}
+
+.nav,
+.aside {
+    /* prevent shrinking and growing */
+    -webkit-flex: none;
+    flex: none;
+    width: 180px;
+}
+
+.nav {
+    background-color: #77BBDD;
+}
+
+.aside {
+    background-color: #FF6633;
+}
+
+.section {
+    /* allow shrinking and growing */
+    -webkit-flex: auto;
+    flex: auto;
+    width: auto;
+    background-color: #D6D6D6;
+}
+
+/* Apply the following styles up to a viewport width of 560px */
+@media (max-width: 35em) {
+    .flexbox {
+        /* place all boxes in a single column, and reverse their order */
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .flexbox-item {
+        width: 100vw;
+        height: 26.6666667vh;
+    }
+
+    .header,
+    .footer {
+        font-size: 1.25rem;
+    }
+    
+    /* reorder the items for a good mobile UX */
+    .nav {
+        -webkit-order: 3;
+        order: 3;
+    }
+
+    .section {
+        -webkit-order: 1;
+        order: 1;
+    }
+
+    .aside {
+        -webkit-order: 2;
+        order: 2;
+    }
+}
+/* ==========================================================================
+   Theme
+   ========================================================================== */
+
+.angleBrackets:before {
+    content: '<';
+}
+
+.angleBrackets:after {
+    content: '>';
+}
