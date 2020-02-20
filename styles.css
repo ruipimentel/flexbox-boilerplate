@@ -17,12 +17,12 @@ body {
     margin: 0;
     /**
    * Root em units
-   * 
+   *
    * A root unit (rem) unit is relative to the root font size,
    * wheras an em unit is relative to it's parent.
-   * 
+   *
    * Ex: root font size = 16px
-   *     1.75rem        = 28px 
+   *     1.75rem        = 28px
    */
     font-size: 1.75rem;
 }
@@ -34,11 +34,11 @@ body {
 .flexbox-item {
     display: -webkit-flex;	/* Chrome 21+ */
     display: flex;			/* Opera 12.1, Firefox 22+ */
-    
+
     /* Align and distribute flex items on the main axis (horizontally) */
     -webkit-justify-content: center;
     justify-content: center;
-    
+
     /* Align and distribute flex items on the cross axis (vertically) */
     -webkit-align-items: center;
     align-items: center;
@@ -47,9 +47,9 @@ body {
 .flexbox-item {
     /**
    * Viewport Units
-   * 
+   *
    * A viewport unit (vh/vw) is relative to the viewport size
-   * 1 viewport unit = 1% of the viewport 
+   * 1 viewport unit = 1% of the viewport
    */
     height: 80vh;
 }
@@ -104,7 +104,7 @@ body {
     .footer {
         font-size: 1.25rem;
     }
-    
+
     /* reorder the items for a good mobile UX */
     .nav {
         -webkit-order: 3;
