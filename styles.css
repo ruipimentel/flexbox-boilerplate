@@ -1,6 +1,7 @@
 /*
 ORIGINAL SOURCE: "The Holy Grail" by Scott McKee
 URL: https://codepen.io/thedigitalman/pen/rAHCj
+MODIFIED BY: Rui Pimentel Leite
 */
 
 /* ==========================================================================
@@ -26,12 +27,16 @@ body {
    */
     font-size: 1.75rem;
 }
+
+html, body {
+    height: 100%;
+}
+
 /* ==========================================================================
    Layout
    ========================================================================== */
 
-.flexbox,
-.flexbox-item {
+.flexbox {
     display: -webkit-flex;	/* Chrome 21+ */
     display: flex;			/* Opera 12.1, Firefox 22+ */
 
@@ -39,28 +44,26 @@ body {
     -webkit-justify-content: center;
     justify-content: center;
 
+    flex-direction: row;
+
     /* Align and distribute flex items on the cross axis (vertically) */
     -webkit-align-items: center;
     align-items: center;
 }
 
-.flexbox-item {
-    /**
-   * Viewport Units
-   *
-   * A viewport unit (vh/vw) is relative to the viewport size
-   * 1 viewport unit = 1% of the viewport
-   */
-    height: 80vh;
-}
-
 .header,
 .footer {
-    height: 10vh;
+    height: 2em;
     color: #fff;
     background-color: #666;
     -webkit-transition: font-size 0.5s linear;
     transition: font-size 0.5s linear;
+    text-align: center;
+}
+
+.content {
+    flex-grow: 1;
+    align-items: stretch !important;
 }
 
 .nav,
@@ -68,7 +71,7 @@ body {
     /* prevent shrinking and growing */
     -webkit-flex: none;
     flex: none;
-    width: 180px;
+    min-width: 180px;
 }
 
 .nav {
@@ -87,17 +90,13 @@ body {
     background-color: #D6D6D6;
 }
 
-/* Apply the following styles up to a viewport width of 560px */
-@media (max-width: 35em) {
+/* Apply the following styles up to a viewport width of 700px */
+@media (max-width: 700px) {
     .flexbox {
         /* place all boxes in a single column, and reverse their order */
         -webkit-flex-direction: column;
         flex-direction: column;
-    }
-
-    .flexbox-item {
-        width: 100vw;
-        height: 26.6666667vh;
+        align-items: stretch;
     }
 
     .header,
@@ -109,6 +108,7 @@ body {
     .nav {
         -webkit-order: 3;
         order: 3;
+        text-align: center;
     }
 
     .section {
@@ -119,8 +119,17 @@ body {
     .aside {
         -webkit-order: 2;
         order: 2;
+        text-align: center;
     }
 }
+
+.vertical-flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
 /* ==========================================================================
    Theme
    ========================================================================== */
